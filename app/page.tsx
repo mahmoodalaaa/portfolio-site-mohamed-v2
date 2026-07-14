@@ -13,19 +13,19 @@ export default function Home() {
 
   const sliderImages = [
     {
-      src: '/images/hero_truck_sunset.png',
+      src: '/images/2.jfif',
       alt: t.fleetLongHaulTitle || 'Şehirlerarası Ticari Filo',
       title: t.fleetLongHaulTitle || 'Şehirlerarası Lojistik',
       description: t.fleetLongHaulDesc || 'Şehirler arası güvenli lojistik ve taşımacılık.'
     },
     {
-      src: '/images/delivery_van_night.png',
+      src: '/images/3.jfif',
       alt: t.fleetUrbanTitle || 'Kentsel Çevik Birimler',
       title: t.fleetUrbanTitle || 'Şehir İçi Taşımacılık',
       description: t.fleetUrbanDesc || 'Hızlı ve pratik kentsel nakliye çözümleri.'
     },
     {
-      src: '/images/truck_warehouse.png',
+      src: '/images/4.jfif',
       alt: t.serv3Title || 'Ev & Ofis Taşıma',
       title: t.serv3Title || 'Profesyonel Depolama',
       description: t.serv3Desc || 'Güvenli paketleme ve sigortalı nakliye hizmeti.'

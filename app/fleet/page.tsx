@@ -82,7 +82,7 @@ export default function FleetPage() {
           <ScrollReveal direction={isRtl ? 'right' : 'left'} className="md:col-span-4 h-full">
             <div className="group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500 min-h-[300px] h-full">
               <Image 
-                src="/images/image.png" 
+                src="/images/1.jfif" 
                 alt={t.fleetSpecialTitle} 
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
