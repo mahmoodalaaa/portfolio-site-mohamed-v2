@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ŞAHİN NAKLİYE | Ekipman ve Ürünlerimiz</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&amp;family=Work+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "error-container": "#93000a",
+                    "on-primary": "#3c2f00",
+                    "tertiary": "#d1cec7",
+                    "surface": "#131313",
+                    "inverse-primary": "#735c00",
+                    "secondary": "#c8c6c5",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary": "#f2ca50",
+                    "on-error": "#690005",
+                    "primary-fixed": "#ffe088",
+                    "surface-dim": "#131313",
+                    "on-tertiary-container": "#464540",
+                    "background": "#131313",
+                    "on-primary-container": "#554300",
+                    "error": "#ffb4ab",
+                    "primary-container": "#d4af37",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "secondary-container": "#474746",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-highest": "#353535",
+                    "outline": "#99907c",
+                    "surface-tint": "#e9c349",
+                    "tertiary-container": "#b5b3ac",
+                    "tertiary-fixed": "#e5e2db",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-tertiary-fixed": "#1c1c17",
+                    "on-tertiary": "#31312b",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-container-low": "#1b1c1c",
+                    "surface-container-high": "#2a2a2a",
+                    "on-surface": "#e4e2e1",
+                    "surface-container": "#1f2020",
+                    "inverse-surface": "#e4e2e1",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-secondary": "#313030",
+                    "surface-bright": "#393939",
+                    "outline-variant": "#4d4635",
+                    "on-surface-variant": "#d0c5af",
+                    "inverse-on-surface": "#303030",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-variant": "#353535",
+                    "on-background": "#e4e2e1",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#c9c6bf",
+                    "on-tertiary-fixed-variant": "#474741",
+                    "on-primary-fixed": "#241a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-xl": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .honeycomb-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(to bottom, #f2ca50, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button {
+            background: linear-gradient(to right, #f2ca50, #d4af37);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gold-button:hover {
+            box-shadow: 0 0 15px rgba(242, 202, 80, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .faded-separator {
+            background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+            height: 1px;
+            width: 100%;
+        }
+
+        .card-accent-border {
+            border-top: 2px solid #d4af37;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md honeycomb-bg min-h-screen">
+<nav class="sticky top-0 z-50 bg-surface-container-lowest border-b border-primary/10 shadow-sm w-full">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-xl text-primary uppercase tracking-widest">
+                ŞAHİN NAKLİYE
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Services</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Our Fleet</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">public</span>
+<span class="font-body-md text-body-md">Language</span>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-desktop py-20 space-y-32">
+<section class="relative text-center space-y-6">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">cable</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl gold-gradient-text uppercase">Ekipman ve Ürünlerimiz</h1>
+<p class="max-w-2xl mx-auto text-on-surface-variant font-body-lg text-body-lg">
+                Şahin Nakliye olarak, her operasyonda en yüksek standartlarda ekipman ve son teknoloji araç filosunu kullanarak değerli eşyalarınızı güvence altına alıyoruz.
+            </p>
+<div class="faded-separator mt-8"></div>
+</section>
+<section class="space-y-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary">Taşıma Ekipmanları</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-high card-accent-border p-8 space-y-6 group transition-all hover:bg-surface-container-highest">
+<div class="aspect-square w-full overflow-hidden bg-black relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A professional close-up of high-quality logistics equipment including stacked brown corrugated cardboard boxes on a clean wooden pallet. The scene is lit with dramatic cinematic lighting in a dark industrial warehouse with golden light reflections. The composition is clean, authoritative, and highlights the precision of commercial transport equipment in a corporate high-contrast style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5Rg8bidLyYDU7Lrl_84lGk7DX8l2Inj2sFQVa-OuqtD6ZxnTWFWkgyR2FCm62C2eWEbg5qmJr5AT7YlNEHhgSMPvLRdxnTO6GYm0Ez0xA-QMHJ8dKPeyADPmR4KxadN6pHwthOFG5IFCbtNImYHSy7FyK7AW_spYUaT-YBArQKWOEnA2TEthnfpKWga_-m5y_sTcFxvRZ1rXhGpmpvNOHW12M5MsKeYgqUxU3mFgCLb1WTY_SX5x"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Profesyonel Paketleme</h3>
+<p class="text-on-surface-variant">Çift oluklu dayanıklı koliler, hava kanallı patpat naylonlar ve köşe koruyucular ile tam koruma.</p>
+</div>
+</div>
+<div class="bg-surface-container-high card-accent-border p-8 space-y-6 group transition-all hover:bg-surface-container-highest">
+<div class="aspect-square w-full overflow-hidden bg-black relative">
+<div class="w-full h-full bg-cover bg-center opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A high-end industrial pallet jack and specialized heavy-duty transport pallets in a dark, structured warehouse environment. The lighting is sophisticated, focusing on metallic textures and gold accents reflecting off the equipment. The mood is serious and professional, emphasizing reliability and strength in logistics assets." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtaqQgMWOwVrY29F_b8ydy3i6VO08BAXbUtM9wILpx1ybjkQrO6mLHBKEO23i1kvGcvoCfihTCesEHiE3LVQjSUJGRQrlLAa2QMiKQiA_y9u-n3xfyCO9CTw5UKKAlqBc8s7UJ17vI7s1dSaWcUIt5YpA6ZCxOdV4Za6iTmqX_v1iTXelFHl9tm-gemduCkpXxIDOx5vq2VM-d6jnt5Hs9sNaM0j99fUBidrycvDAc-l7PmTBFdy_7')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Paletli Taşıma Sistemleri</h3>
+<p class="text-on-surface-variant">Parça yükleriniz için standartlara uygun, güvenli istifleme sağlayan euro palet ve sabitleme ekipmanları.</p>
+</div>
+</div>
+<div class="bg-surface-container-high card-accent-border p-8 space-y-6 group transition-all hover:bg-surface-container-highest">
+<div class="aspect-square w-full overflow-hidden bg-black relative">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Close-up of high-tensile strength industrial wrapping film and securing straps being applied to a cargo unit. The lighting highlights the glossy plastic texture and the golden tensioning tools. Dark obsidian background with subtle golden honeycomb patterns adds depth and a premium corporate feel to the logistics documentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfjavLYNSwygSoSJiC8O9UnD2uYRJjzLY4bywS6r5cGXQQiVtE8gRcur892Q6xQRP8FD8JcU_mXyfFoLeUh9IyZHSeTLxkSFgvOMn7GoYQ8F37cq0ieS_sqfvJTrjIXCvF5Y8GDDfdUPzTBqYf-jg1QvQnDND4d7xekwDiBwFmxnKBmd-4fgnjnDuhhb--ATBVvao5TkhZ6MAkIyvo7_ey1iLqEKgLVDaqBu0mloHbo-gEQY-bqQpF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-primary">Endüstriyel Streçleme</h3>
+<p class="text-on-surface-variant">Toz, nem ve darbelere karşı tam izolasyon sağlayan yüksek mikronlu endüstriyel streç film uygulamaları.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">chair</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary">Özel Taşıma Ürünleri</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col md:flex-row bg-surface-container-high card-accent-border overflow-hidden">
+<div class="w-full md:w-1/2 aspect-video md:aspect-auto">
+<img class="w-full h-full object-cover" data-alt="Two professional logistics experts in sleek black and gold uniforms carefully moving a premium blue velvet chesterfield sofa. The background is a minimalist deep grey with a golden eagle motif seal. The lighting is high-end studio style, casting soft shadows and highlighting the high-quality handling equipment and uniform precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_GApyKP11htrKGS1lh_7S81vpKhbr0LThAEJoRJpEnXGfAi21BPEOIOI2W7flN8_PBtHwOxuRjIunVsPwcSEXjY7Xww-iDqSvlKTMk51cKsYlKTZ6x92x9DCDeF8JH844JVPykkY-GpGP-TrfcJr3wKA0IeEtEZFNmZmFHv7Ptrw-DLSRuVi9xzvYA5FUBibvFVGrfir_vwIeBCoErIcOiuAugHYxC_BtHOEx6XzwbN-5GN10LIZA"/>
+</div>
+<div class="w-full md:w-1/2 p-10 flex flex-col justify-center space-y-4">
+<h3 class="font-headline-md text-headline-md text-primary">Mobilya Taşıma Setleri</h3>
+<p class="text-on-surface-variant">Hassas mobilyalar için özel tasarım taşıma kılıfları, asansörlü sistemler ve kaydırmaz eldiven ekipmanları ile profesyonel çözüm.</p>
+<ul class="space-y-2 text-label-sm font-label-sm text-primary/80 uppercase tracking-wider">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Anti-statik Kumaş Kılıflar</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Teleskobik Mobilya Taşıyıcılar</li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row bg-surface-container-high card-accent-border overflow-hidden">
+<div class="w-full md:w-1/2 aspect-video md:aspect-auto order-1 md:order-2">
+<img class="w-full h-full object-cover" data-alt="Close-up of a professional furniture montage toolkit featuring gold-accented high-precision power tools and hand tools arranged neatly on a dark work surface. A faint golden honeycomb pattern is visible in the background. The atmosphere is one of elite craftsmanship and technical mastery in furniture assembly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3QdZ5Ta80LHPijA9MJYXmj4szyduOKtptxK-sote_813eUyEf46cJcah0brywZ3AvbemKoGFI4g8NHDzaBH0SNdPUoKKyZWBxn4zrK45xbJr6mZ3D3FpedAKyAIgfZf6RaWE_8CI2iABI8ntep-RsT5ciE_cTiCvwC-nrdC84OVLjiseYT3r2fBTLt4L-1GAyYzkQroiPyLplWHHiSTyRIESA4c12NQiUlvT5r86HK1T9bbnAh8dk"/>
+</div>
+<div class="w-full md:w-1/2 p-10 flex flex-col justify-center space-y-4 order-2 md:order-1">
+<h3 class="font-headline-md text-headline-md text-primary">Montaj Ekipmanları</h3>
+<p class="text-on-surface-variant">Her marka ve model mobilya için tam uyumlu, kalibre edilmiş profesyonel el aletleri ve elektronik montaj setleri.</p>
+<ul class="space-y-2 text-label-sm font-label-sm text-primary/80 uppercase tracking-wider">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Lazer Hizalama Aletleri</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">check_circle</span> Hassas Torklu Vidalamalar</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-12">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary">Filo Özellikleri</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-low border border-outline-variant/20 p-10 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 text-primary/5 group-hover:text-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[120px]">aspect_ratio</span>
+</div>
+<h4 class="font-label-sm text-label-sm text-primary uppercase mb-2">Kapasite &amp; Boyut</h4>
+<h3 class="font-headline-md text-headline-md mb-4">Geniş Hacim</h3>
+<p class="text-on-surface-variant mb-6">Kia Bongo araçlarımız 12m³ kargo hacmi ile şehir içi dar sokaklarda bile maksimum taşıma kapasitesi sunar.</p>
+<div class="flex items-baseline gap-2 border-t border-primary/20 pt-4">
+<span class="text-headline-md font-bold text-primary">1500</span>
+<span class="text-label-sm uppercase font-label-sm opacity-60">kg net taşıma</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/20 p-10 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 text-primary/5 group-hover:text-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[120px]">ac_unit</span>
+</div>
+<h4 class="font-label-sm text-label-sm text-primary uppercase mb-2">Koruma Teknolojisi</h4>
+<h3 class="font-headline-md text-headline-md mb-4">Isı Kontrolü</h3>
+<p class="text-on-surface-variant mb-6">Özel yalıtımlı kasa yapısı ve opsiyonel soğutma özellikleri ile hassas yükleriniz dış ortamdan etkilenmez.</p>
+<div class="flex items-baseline gap-2 border-t border-primary/20 pt-4">
+<span class="text-headline-md font-bold text-primary">Full</span>
+<span class="text-label-sm uppercase font-label-sm opacity-60">İzolasyon</span>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/20 p-10 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 text-primary/5 group-hover:text-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[120px]">speed</span>
+</div>
+<h4 class="font-label-sm text-label-sm text-primary uppercase mb-2">Mobilite</h4>
+<h3 class="font-headline-md text-headline-md mb-4">Hızlı Teslimat</h3>
+<p class="text-on-surface-variant mb-6">Yeni nesil Euro 6 motor teknolojisi ile hem çevreci hem de seri lojistik avantajı sağlıyoruz.</p>
+<div class="flex items-baseline gap-2 border-t border-primary/20 pt-4">
+<span class="text-headline-md font-bold text-primary">7/24</span>
+<span class="text-label-sm uppercase font-label-sm opacity-60">Şehir içi Erişim</span>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-primary/5 p-12 md:p-20 text-center space-y-8 border-y border-primary/10">
+<h2 class="font-headline-xl text-headline-xl gold-gradient-text uppercase">Profesyonel Lojistik İçin Doğru Adres</h2>
+<p class="max-w-3xl mx-auto text-on-surface-variant font-body-lg text-body-lg">
+                Ekipman kalitemizi yerinde görmek ve size özel teklifimizi hazırlamamız için bizimle iletişime geçin.
+            </p>
+<button class="gold-button px-12 py-5 text-on-primary font-headline-md text-headline-md uppercase tracking-widest inline-flex items-center gap-4">
+                Hemen Teklif Alın
+                <span class="material-symbols-outlined">trending_flat</span>
+</button>
+</section>
+</main>
+<div class="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+<a class="flex items-center justify-center bg-primary text-on-primary p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-90" href="tel:+905373277186">
+<span class="material-symbols-outlined">phone</span>
+</a>
+<a class="flex items-center justify-center bg-primary text-on-primary p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-90" href="https://wa.me/905315412975">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="text-headline-md font-headline-md text-primary uppercase">ŞAHİN NAKLİYE</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Güvenli, Hızlı ve Zamanında Teslimat prensibiyle 2024'ten beri yanınızdayız.</p>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-bold uppercase tracking-wider">Hızlı Linkler</h4>
+<ul class="space-y-2 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Hakkımızda</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Hizmetlerimiz</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Ekipmanlarımız</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Sıkça Sorulan Sorular</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-bold uppercase tracking-wider">Kurumsal</h4>
+<ul class="space-y-2 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">FAQ</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Support</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-primary font-bold uppercase tracking-wider">Bize Ulaşın</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">İstanbul, Türkiye</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 py-6 text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm">© 2024 Şahin Nakliye &amp; Yük Taşımacılığı. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.group');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.transition = 'transform 0.3s ease';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body></html>

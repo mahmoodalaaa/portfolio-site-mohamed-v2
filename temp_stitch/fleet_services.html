@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Work+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "outline-variant": "#4d4635",
+                            "surface-container-high": "#2a2a2a",
+                            "surface-bright": "#393939",
+                            "on-error": "#690005",
+                            "secondary-fixed-dim": "#c8c6c5",
+                            "on-surface": "#e4e2e1",
+                            "inverse-surface": "#e4e2e1",
+                            "secondary-fixed": "#e5e2e1",
+                            "surface-container-highest": "#353535",
+                            "secondary-container": "#474746",
+                            "on-secondary": "#313030",
+                            "on-surface-variant": "#d0c5af",
+                            "surface-container": "#1f2020",
+                            "error": "#ffb4ab",
+                            "surface-container-lowest": "#0e0e0e",
+                            "surface": "#131313",
+                            "tertiary-fixed": "#e5e2db",
+                            "on-primary": "#3c2f00",
+                            "primary-container": "#d4af37",
+                            "background": "#131313",
+                            "inverse-on-surface": "#303030",
+                            "on-tertiary-fixed-variant": "#474741",
+                            "on-primary-container": "#554300",
+                            "on-secondary-container": "#b7b5b4",
+                            "tertiary-fixed-dim": "#c9c6bf",
+                            "on-tertiary-fixed": "#1c1c17",
+                            "error-container": "#93000a",
+                            "on-tertiary-container": "#464540",
+                            "primary-fixed-dim": "#e9c349",
+                            "primary-fixed": "#ffe088",
+                            "on-primary-fixed-variant": "#574500",
+                            "primary": "#d4af37",
+                            "on-secondary-fixed": "#1c1b1b",
+                            "on-primary-fixed": "#241a00",
+                            "surface-tint": "#e9c349",
+                            "secondary": "#c8c6c5",
+                            "on-tertiary": "#31312b",
+                            "surface-dim": "#131313",
+                            "on-background": "#e4e2e1",
+                            "on-error-container": "#ffdad6",
+                            "on-secondary-fixed-variant": "#474746",
+                            "surface-variant": "#353535",
+                            "inverse-primary": "#735c00",
+                            "tertiary-container": "#b5b3ac",
+                            "outline": "#99907c",
+                            "surface-container-low": "#1b1c1c",
+                            "tertiary": "#d1cec7"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "unit": "8px",
+                            "gutter": "24px",
+                            "container-max": "1280px",
+                            "margin-desktop": "64px",
+                            "margin-mobile": "16px"
+                        },
+                        "fontFamily": {
+                            "headline-lg": ["Montserrat"],
+                            "body-md": ["Work Sans"],
+                            "headline-md": ["Montserrat"],
+                            "headline-xl": ["Montserrat"],
+                            "body-lg": ["Work Sans"],
+                            "label-sm": ["JetBrains Mono"]
+                        },
+                        "fontSize": {
+                            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                            "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                        }
+                    },
+                },
+            }
+        } catch (_e) {}
+    </script>
+<style>
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+        .honeycomb-pattern {
+            background-color: #131313;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23d4af37' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #ffe088 50%, #d4af37 100%);
+        }
+    </style>
+</head>
+<body class="font-body-md bg-background text-on-surface antialiased">
+<!-- TopNavBar (Styled after SCREEN_12) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-primary/10 h-20 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-full w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<div class="text-headline-md font-headline-xl text-primary uppercase tracking-widest">
+                ŞAHİN NAKLİYE
+            </div>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Our Fleet</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label-sm uppercase tracking-wider">Language</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</header>
+<main class="relative z-10 pt-40 honeycomb-pattern min-h-screen">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-24 text-center">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4 uppercase">OUR ELITE FLEET</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Discover our specialized logistics assets, meticulously maintained for precision, safety, and speed. From residential relocation to large-scale commercial transport.
+        </p>
+<div class="w-24 h-1 bg-primary mx-auto mt-8"></div>
+</section>
+<!-- Fleet Grid (Bento Style) -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Feature: Long-Haul -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500">
+<div class="h-[500px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDK-5PT-y8bYFcCdoN3kMDAYcPCI_UbidHApg_-4SIkzku6JBsp17cQYw6fUJLiLMFq0amcdiqpXAaeEVswA55xK5I7CxjdFcLDugmxtVTU9BCpgiUBawTeKty3BM_XBWdD-hja8L1Xm0tjOpHRQgcNuNSnvaI-go2NX-BCxX8TgRxYeQ6P5z259WaULge0pVD59He1pF97YkU2tORtEeFejgXEdRiIhf0-3ouP9UqJkJ1G3sqWnijE')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="inline-block bg-primary text-on-primary px-4 py-1 font-label-sm mb-4">HEAVY DUTY</span>
+<h3 class="font-headline-lg text-headline-lg text-white">Commercial Long-Haul Fleet</h3>
+<p class="text-on-surface-variant max-w-md mt-2">Equipped for intercity logistics with climate control and GPS tracking.</p>
+</div>
+</div>
+<!-- Secondary Item: Urban Agile -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500">
+<div class="h-[500px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDd-tKS4sOK74UPH34INBfjo0snynYEmnAyD3rR7Y6BcbrxmVNoBPM7bVw9h44wGvMVCckT7VcaB6--n3Bz_7xOqE1kpsNr0HNejhB2bOmeilqjhxl67H-uqXwp5bQk0S-DlA7OiObhaPyD0_O1vyuJbIHTPxtfLwD3gfGNZKhVKjEnUC2bwWwSWYw2zt2ODYxeCcqvWIRsZHtEnmSCFrgEzzHj2t2ErbsI0oBZiKmwlahYmMp7jM9F')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="inline-block border border-primary text-primary px-4 py-1 font-label-sm mb-4">CITY LOGISTICS</span>
+<h3 class="font-headline-md text-headline-md text-white">Urban Agile Units</h3>
+<p class="text-on-surface-variant mt-2">Optimized for fast city-wide furniture and parcel delivery.</p>
+</div>
+</div>
+<!-- Tertiary Item: Specialized Handling -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500">
+<div class="h-[400px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAg6xSN9BMktwYn_LZ6hwXFoJrO1-92Dirp3UoNj41SxeQsUqbys2Socfn1ktNQZpGX5uwILfEtZQivzH2XTd6b4L6K1TqjmwnVCVqxqFZpQTzDe8Ii9SyNPsyEOpCf8DgQin4Ywq2vtVPIraaXQcz7emV7HjAGUBIdel3bJWVVlnV01_0aHlE1RPPU9u650B9MjLXzBBtrhZ-OVVXCsCgAp3UNdKXZFLBS9HDef3CWzy4GQHWL2-Ii')"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full bg-surface/90 backdrop-blur-sm">
+<h4 class="font-headline-md text-headline-md text-primary">Specialized Handling</h4>
+<p class="text-on-surface-variant font-body-md mt-1">Fragile goods &amp; luxury items.</p>
+</div>
+</div>
+<!-- Quaternary Item: Group Shot / Reliability -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500">
+<div class="h-[400px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbCq4WihCdCJL6n5Pm566BdhfbtXYTDJB0yqrHvH87hzbIOAMPwahdKgpD8y6uB41DPjG2nE8_XSywLO77FPmVO0fzcvY9OBPfgmvKZMQO-ft0i4-7W_nUgltirN2E073L4VGQqOUX9DrZH6yfF_Hh3MI_xqkREsM0J_np3kv-6GQ9NL90SPxd1dS_x9rcY5HyXrK81t5wWQt0GOaHB0iQfMVijgmtGLIKl9638j-qFpZ-fsx0dZNg')"></div>
+<div class="absolute top-8 right-8">
+<div class="flex items-center gap-2 bg-primary/20 backdrop-blur-md p-4 border border-primary/30">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-primary font-bold">100% RELIABILITY</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialized Services: Mobilya Montaj -->
+<section class="bg-surface-container-low py-32 border-y border-primary/10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid md:grid-cols-2 gap-24 items-center">
+<div class="order-1">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">MOBİLYA MONTAJ</h2>
+<h3 class="font-headline-md text-headline-md text-white mb-4 italic">Precision Assembly Services</h3>
+<p class="text-on-surface-variant text-body-lg mb-8">
+                        Our team doesn't just transport; we construct. Our Furniture Assembly specialists are trained in the complexities of high-end modular systems, ensuring your office or home is ready for use immediately upon arrival.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">build</span>
+<span class="font-label-sm tracking-widest text-on-surface">CERTIFIED TECHNICIANS</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">check_circle</span>
+<span class="font-label-sm tracking-widest text-on-surface">ZERO-DAMAGE GUARANTEE</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">speed</span>
+<span class="font-label-sm tracking-widest text-on-surface">EFFICIENT SAME-DAY SETUP</span>
+</li>
+</ul>
+</div>
+<div class="relative order-2">
+<div class="absolute -top-8 -left-8 w-32 h-32 border-l-4 border-t-4 border-primary/30"></div>
+<div class="w-full aspect-square bg-cover bg-center shadow-2xl border border-primary/20" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLufDZ-EJ8XQl8OT2EfyBGB3WNNY3Gx5t7pGrAz5nyzu2KutbaZ_hoNOm1nmnrtN5eEx51ihk3lmzF6b4yPIfiufP_hofY_OsTWZOFBIJieMXNtXMOFXKb5z8XUhaSroXg0KvS8bQioMy8oAv0ksjVCYK-nPEamlMwPDqDLR9fJLSvlGVe7LxwpCUmUUvZ5Qi7oOUgqxkcTs6zVfMzQdtqxL6IX0ZWtq8zrXLW0jbYJAJnR6IFHttK9Q9g')"></div>
+<div class="absolute -bottom-4 -right-4 p-6 gradient-gold text-on-primary shadow-xl">
+<span class="font-headline-md text-headline-md">EXPERT CARE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Commercial Logistics Section -->
+<section class="py-32">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid md:grid-cols-2 gap-24 items-center">
+<div class="order-2 md:order-1 relative">
+<div class="w-full aspect-video bg-cover bg-center border-l-4 border-primary shadow-2xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFXv_Zfp5bEgn5ekpw68DfF663ijEUy8V2W_d-djTUIkANqBMGqD_pEYj4ZMgZVR1gwJD5CYcKmhF4FJ2w_qwIvNZcNydYCyDuvZ2ajerMMKyp3F_vOJFSNpMx0t8WIrS9vcXncw7FdC_EwEvvTAvV5fJ6QCyHrRVAWQ_3dhe0U2IXo9EIFl2wGt88sqaXUuT0vwda_q50XotIPb72cckuAUOmT29H56YefpcgKIRHOlQdguTbfm9o')"></div>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">TİCARİ NAKLİYE</h2>
+<h3 class="font-headline-md text-headline-md text-white mb-4 italic">B2B Logistics Solutions</h3>
+<p class="text-on-surface-variant text-body-lg mb-8">
+                        High-capacity shipping for corporate partners. We manage the backbone of your supply chain with the vision of an eagle and the precision of a clockwork mechanism.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div class="p-6 bg-surface-container-high border-t border-primary/20 hover:border-primary transition-colors">
+<span class="font-headline-md text-primary block mb-2">24/7</span>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Support</span>
+</div>
+<div class="p-6 bg-surface-container-high border-t border-primary/20 hover:border-primary transition-colors">
+<span class="font-headline-md text-primary block mb-2">100%</span>
+<span class="font-label-sm text-on-surface-variant uppercase tracking-widest">Secure</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-24 mb-32 text-center relative">
+<div class="absolute inset-0 bg-primary/5 blur-3xl -z-10"></div>
+<h2 class="font-headline-xl text-headline-xl mb-6 text-white uppercase">READY TO MOVE?</h2>
+<p class="font-body-lg text-on-surface-variant mb-12">Connect with our logistics experts for a premium consultation.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="gradient-gold text-on-primary px-12 py-4 font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-lg">
+                GET A QUOTE
+            </button>
+<button class="border border-primary text-primary px-12 py-4 font-bold uppercase tracking-widest hover:bg-primary/10 active:scale-95 transition-all">
+                VIEW SERVICES
+            </button>
+</div>
+</section>
+</main>
+<!-- Floating Buttons -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+<a class="flex items-center justify-center bg-primary text-on-primary p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ml-0 group-hover:ml-2 font-bold whitespace-nowrap">WhatsApp</span>
+</a>
+<a class="flex items-center justify-center bg-primary text-on-primary p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-90 group" href="#">
+<span class="material-symbols-outlined">phone</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ml-0 group-hover:ml-2 font-bold whitespace-nowrap">Contact Us</span>
+</a>
+</div>
+<!-- Footer (Styled after SCREEN_12) -->
+<footer class="bg-surface-container-lowest border-t border-primary/10 pt-20 pb-12 relative z-10">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+<div class="md:col-span-2 space-y-6">
+<div class="text-headline-md font-headline-md text-primary mb-4 uppercase tracking-widest">ŞAHİN NAKLİYE</div>
+<p class="text-on-surface-variant font-body-md max-w-md">
+                Şahin Nakliye &amp; Yük Taşımacılığı, modern lojistik anlayışı ve uzman kadrosuyla sektörün parlayan yıldızıdır. Güveniniz bizim en büyük sermayemizdir.
+            </p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary">call</span>
+<div class="flex flex-col font-label-sm">
+<a class="hover:text-primary transition-colors" href="tel:05373277186">Mustafa Şahin: 0537 327 71 86</a>
+<a class="hover:text-primary transition-colors" href="tel:05315412975">Muhammet Şahin: 0531 541 29 75</a>
+</div>
+</div>
+<div class="flex items-center gap-3 text-on-surface font-label-sm">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>İstanbul, Türkiye</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Hızlı Linkler</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Hizmetlerimiz</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Hakkımızda</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">İletişim</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Kurumsal</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">FAQ</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">© 2024 Şahin Nakliye &amp; Yük Taşımacılığı. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-all" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-all" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</footer>
+<script>
+    // Subtle scroll effect for navigation
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('h-16', 'bg-surface-container-lowest/95');
+            header.classList.remove('h-20');
+        } else {
+            header.classList.add('h-20');
+            header.classList.remove('h-16', 'bg-surface-container-lowest/95');
+        }
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+</body></html>

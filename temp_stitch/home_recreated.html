@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&amp;family=Work+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#303030",
+                        "outline": "#99907c",
+                        "on-surface": "#e4e2e1",
+                        "inverse-primary": "#735c00",
+                        "on-surface-variant": "#d0c5af",
+                        "tertiary-container": "#b5b3ac",
+                        "tertiary-fixed-dim": "#c9c6bf",
+                        "background": "#131313",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-primary-fixed-variant": "#574500",
+                        "surface-container": "#1f2020",
+                        "on-tertiary": "#31312b",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-fixed-dim": "#e9c349",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "primary-fixed": "#ffe088",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#474746",
+                        "on-primary-container": "#554300",
+                        "surface-variant": "#353535",
+                        "on-tertiary-fixed-variant": "#474741",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary": "#3c2f00",
+                        "outline-variant": "#4d4635",
+                        "tertiary": "#d1cec7",
+                        "on-secondary-container": "#b7b5b4",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#1c1c17",
+                        "on-tertiary-container": "#464540",
+                        "on-secondary": "#313030",
+                        "inverse-surface": "#e4e2e1",
+                        "surface-bright": "#393939",
+                        "primary": "#d4af37",
+                        "on-primary-fixed": "#241a00",
+                        "tertiary-fixed": "#e5e2db",
+                        "surface-container-low": "#1b1c1c",
+                        "on-background": "#e4e2e1",
+                        "secondary": "#c8c6c5",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-tint": "#e9c349",
+                        "surface-container-highest": "#353535",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#c8c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Montserrat"],
+                        "body-md": ["Work Sans"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .gold-gradient-text {
+            background: linear-gradient(to right, #d4af37, #ffe088, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased bg-background text-on-surface">
+<!-- Background Shader -->
+<div class="fixed inset-0 w-full h-full z-0 opacity-40 pointer-events-none" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_8" style="display:block;width:100%;height:100%"></canvas>
+<script>
+        (function() {
+          const canvas = document.getElementById('shader-canvas-ANIMATION_8');
+          function syncSize() {
+            const w = canvas.clientWidth  || 1280;
+            const h = canvas.clientHeight || 720;
+            if (canvas.width !== w || canvas.height !== h) {
+              canvas.width  = w;
+              canvas.height = h;
+            }
+          }
+          if (typeof ResizeObserver !== 'undefined') {
+            new ResizeObserver(syncSize).observe(canvas);
+          }
+          syncSize();
+          const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+          if (!gl) return;
+          const vs = `attribute vec2 a_position;
+        varying vec2 v_texCoord;
+        void main() {
+          v_texCoord = a_position * 0.5 + 0.5;
+          gl_Position = vec4(a_position, 0.0, 1.0);
+        }`;
+          const fs = `precision highp float;
+        varying vec2 v_texCoord;
+        uniform float u_time;
+        uniform vec2 u_resolution;
+        void main() {
+            vec2 uv = v_texCoord;
+            float noise = sin(uv.x * 10.0 + u_time) * cos(uv.y * 10.0 - u_time) * 0.05;
+            vec3 color1 = vec3(0.07, 0.07, 0.07);
+            vec3 color2 = vec3(0.83, 0.68, 0.21);
+            float shimmer = smoothstep(0.45, 0.55, sin(uv.x * 3.0 + uv.y * 2.0 + u_time * 0.5) * 0.5 + 0.5);
+            vec3 finalColor = mix(color1, color2 * 0.15, shimmer + noise);
+            gl_FragColor = vec4(finalColor, 1.0);
+        }`;
+          function cs(type, src) {
+            const s = gl.createShader(type);
+            gl.shaderSource(s, src);
+            gl.compileShader(s);
+            return s;
+          }
+          const prog = gl.createProgram();
+          gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+          gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+          gl.linkProgram(prog);
+          gl.useProgram(prog);
+          const buf = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+          const pos = gl.getAttribLocation(prog, 'a_position');
+          gl.enableVertexAttribArray(pos);
+          gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+          const uTime = gl.getUniformLocation(prog, 'u_time');
+          function render(t) {
+            gl.viewport(0, 0, canvas.width, canvas.height);
+            if (uTime) gl.uniform1f(uTime, t * 0.001);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+            requestAnimationFrame(render);
+          }
+          render(0);
+        })();
+        </script>
+</div>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-primary/10 h-20 shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop h-full w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Şahin Nakliye Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAon3ZNPmERY6uU5pDI1kRJIA7QXIYxz8M6AVK5XwMZsGyeGsen0S7WrxbIuVATANWzVpCWotl9nr-JyejXQ5IGplpaTn2wbDXFtIIQIHLfdLOdYO_-gkkuwSN_hGLCc7c4e6YaJgZxBVgsGNDidgAz48UCKSBzs2F-vPxx7qQm8iMRxdPHeh71ibfMocRMZd1_x2sEtwCHSF6pKdBgoB8vGoYscNHKzDiynsCtd5wDjpBMu3MKDliC"/>
+<span class="text-headline-md font-headline-xl text-primary uppercase tracking-widest hidden lg:block">ŞAHİN NAKLİYE</span>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#fleet">Our Fleet</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="group relative">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+<span class="font-body-md">Language</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-32 bg-surface-container shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto border border-primary/20 backdrop-blur-md bg-surface-container-high/90">
+<a class="block px-4 py-2 hover:bg-primary/10 text-on-surface" href="#">TR</a>
+<a class="block px-4 py-2 hover:bg-primary/10 text-on-surface" href="#">EN</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden z-10">
+<div class="relative w-full max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center py-32">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-1 bg-primary/10 border border-primary/20 text-primary font-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Profesyonel Lojistik Çözümleri
+                </div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight">
+<span class="gold-gradient-text">GÜVENLİ, HIZLI,</span><br/>
+                    ZAMANINDA TESLİMAT
+                </h1>
+<p class="font-body-lg text-on-surface-variant max-w-lg">
+                    İstanbul içi ve şehirler arası taşımacılıkta uzman kadromuz ve modern filomuzla hizmetinizdeyiz. Eşyalarınızı şahin hızı ve hassasiyetiyle taşıyoruz.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all flex items-center gap-3">
+                        Get a Quote
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="border border-primary text-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:bg-primary/5 transition-all">
+                        Hizmetlerimiz
+                    </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full"></div>
+<img alt="Şahin Nakliye Modern Truck" class="relative z-10 w-full h-auto object-cover border border-primary/20 shadow-2xl rounded-lg" src="https://lh3.googleusercontent.com/aida/AP1WRLv3l2k-hBwkoAVUtt-jbOe-ZCI2H92zghlMcaoOQ65eIi47D9SmQnnK1PG-WmyGU6Zi_G2xJP-FdG41AoeaUMVhSef0wQZIQqeJv32Q9zbgtDhWysq5uB43qPcO0cjnJqrnpiLfKaBbONan8aNQuXFbNPqIN_izUkgkZnuLJy0t_K2GqRvVcDuQrexhUxfbjeynVtoMSxegjV0XVWwSIzJewPrfApV1CUQyRTEOZCSeRZDlo7X_5T6meg"/>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+<span class="text-primary/40 font-label-sm uppercase tracking-tighter">Kaydır</span>
+<div class="w-px h-12 bg-gradient-to-b from-primary to-transparent"></div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 relative z-10" id="services">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col items-center mb-20 text-center space-y-4">
+<h2 class="font-headline-xl text-headline-xl gold-gradient-text uppercase mb-4">HİZMETLERİMİZ</h2>
+<div class="w-24 h-1 bg-primary mb-6"></div>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+                    Her türlü taşıma ihtiyacınıza profesyonel, sigortalı ve garantili çözümler sunuyoruz.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Service 1: Partial Load -->
+<div class="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden">
+<div class="aspect-video overflow-hidden">
+<img alt="Parça Yük Taşıma" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLvo0rAbsgBGLjYk5cHu19x6VDL1TckREIe-Li82Oyi_GtjZdYiRNFqHWT28BhL5H8drqmJV9YQgMf4I_4tqbjRwJH5iRXUt5mZ0M-eVPyyf-MzXyuCFggyYhMXofxUqXq3Hnv06akNVeltRVdToaLR_A0SyIJjAJ0VZSnYQ8TAEJwkVKkgxzOzRuh3yb5iR5X4rN6-wH-d5E01LT_6B3Bx2N8p9oyvphxeNpIQ60gkqNi55a02PGyCJtTo"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4 uppercase">Parça Yük Taşıma</h3>
+<p class="font-body-md text-on-surface-variant mb-6">
+                            Az miktardaki eşyalarınız için ekonomik ve güvenilir taşıma çözümleri. Şehir içi ve şehirler arası konsolide taşıma.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all" href="#">
+                            Detaylar <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Service 2: Furniture -->
+<div class="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden">
+<div class="aspect-video overflow-hidden">
+<img alt="Mobilya Taşıma" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLufDZ-EJ8XQl8OT2EfyBGB3WNNY3Gx5t7pGrAz5nyzu2KutbaZ_hoNOm1nmnrtN5eEx51ihk3lmzF6b4yPIfiufP_hofY_OsTWZOFBIJieMXNtXMOFXKb5z8XUhaSroXg0KvS8bQioMy8oAv0ksjVCYK-nPEamlMwPDqDLR9fJLSvlGVe7LxwpCUmUUvZ5Qi7oOUgqxkcTs6zVfMzQdtqxL6IX0ZWtq8zrXLW0jbYJAJnR6IFHttK9Q9g"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4 uppercase">Mobilya Taşıma</h3>
+<p class="font-body-md text-on-surface-variant mb-6">
+                            Mobilyalarınızın demontaj, ambalaj ve yeni adresinizde montaj işlemlerini titizlikle gerçekleştiriyoruz.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all" href="#">
+                            Detaylar <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Service 3: Office -->
+<div class="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden">
+<div class="aspect-video bg-surface-container-highest flex items-center justify-center">
+<div class="material-symbols-outlined text-8xl text-primary/20" data-icon="apartment" style="font-variation-settings: 'FILL' 1;">apartment</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4 uppercase">Ev &amp; Ofis Taşıma</h3>
+<p class="font-body-md text-on-surface-variant mb-6">
+                            Evden eve veya ofisten ofise anahtar teslim taşımacılık. Profesyonel paketleme ve sigortalı nakliye hizmeti.
+                        </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all" href="#">
+                            Detaylar <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-32 bg-surface-container-lowest relative z-10" id="fleet">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="aspect-square bg-surface-container-highest border border-primary/10 relative overflow-hidden rounded-lg">
+<img alt="Şahin Nakliye Fleet" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTTO5E_S74LnlHHpZRHWjLoBkede8rKwzNX_OiRUrViCvCtLlZ4dkupZWP-1uy4ha5oF1K9PM5KtzagSSbZNXFCE-_SXWzyi0RJ1iX33N9wycWoM7IcdD4MoIJwgB4yNOIQvVV_jyzBfTVKSav1WEiNID_suaQjs8UYhFR-1g_DbVBz2DiCGZHUGEwzRjdDeq3I1KC_NHLZw_w4GEWQQE9_tIUyy-Pf-G9dFd6vv9uMJ2kesGTifMY"/>
+<div class="absolute bottom-8 left-8 right-8 p-6 bg-primary/95 text-on-primary">
+<div class="text-headline-xl font-headline-xl">15+</div>
+<div class="font-body-md uppercase tracking-widest font-bold">Yıllık Tecrübe</div>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline-xl text-headline-xl gold-gradient-text uppercase">HAKKIMIZDA</h2>
+<p class="font-body-lg text-on-surface leading-relaxed">
+                    Şahin Nakliye &amp; Lojistik, sektöründe lider bir marka olarak İstanbul merkezli faaliyet göstermektedir. Kurulduğumuz günden bu yana, taşımacılıkta "elit hizmet" ve "sıfır hata" prensibiyle müşterilerimize kusursuz bir deneyim sunuyoruz. Modern filomuz ve uzman kadromuzla Türkiye'nin her noktasına güven taşıyoruz.
+                </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="done_all">done_all</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Modern Filo</h4>
+<p class="font-body-md text-on-surface-variant">Her türlü yük hacmine uygun, bakımlı ve yeni nesil araç filomuz.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="done_all">done_all</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Garantili Taşıma</h4>
+<p class="font-body-md text-on-surface-variant">Olası aksiliklere karşı tüm taşımalarımız sigorta kapsamındadır.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Contact Section -->
+<footer class="bg-surface-container-lowest border-t border-primary/10 pt-20 pb-12 relative z-10" id="contact">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+<div class="md:col-span-2 space-y-6">
+<img alt="Şahin Nakliye" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAon3ZNPmERY6uU5pDI1kRJIA7QXIYxz8M6AVK5XwMZsGyeGsen0S7WrxbIuVATANWzVpCWotl9nr-JyejXQ5IGplpaTn2wbDXFtIIQIHLfdLOdYO_-gkkuwSN_hGLCc7c4e6YaJgZxBVgsGNDidgAz48UCKSBzs2F-vPxx7qQm8iMRxdPHeh71ibfMocRMZd1_x2sEtwCHSF6pKdBgoB8vGoYscNHKzDiynsCtd5wDjpBMu3MKDliC"/>
+<p class="font-body-md text-on-surface-variant max-w-md">
+                    Şahin Nakliye &amp; Yük Taşımacılığı, modern lojistik anlayışı ve uzman kadrosuyla sektörün parlayan yıldızıdır. Güveniniz bizim en büyük sermayemizdir.
+                </p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+<div class="flex flex-col">
+<a class="hover:text-primary transition-colors" href="tel:05373277186">Mustafa Şahin: 0537 327 71 86</a>
+<a class="hover:text-primary transition-colors" href="tel:05315412975">Muhammet Şahin: 0531 541 29 75</a>
+</div>
+</div>
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<span>İstanbul, Türkiye</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Hızlı Linkler</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#services">Hizmetlerimiz</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#fleet">Hakkımızda</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#contact">İletişim</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-headline-md text-body-lg text-primary uppercase">Kurumsal</h4>
+<ul class="space-y-4 font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">FAQ</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">© 2024 Şahin Nakliye &amp; Yük Taşımacılığı. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-all" href="#"><span class="material-symbols-outlined" data-icon="facebook">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-all" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+</div>
+</div>
+</footer>
+<!-- Floating Buttons -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+<a class="flex items-center justify-center bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-90 group relative" href="https://wa.me/905373277186" target="_blank">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="absolute right-full mr-4 bg-[#25D366] text-white px-3 py-1 text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity rounded">WhatsApp</span>
+</a>
+</div>
+<script>
+        // Subtle scroll effect for navigation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('h-16');
+                header.classList.remove('h-20');
+                header.classList.add('bg-surface-container-lowest/95');
+            } else {
+                header.classList.add('h-20');
+                header.classList.remove('h-16');
+                header.classList.remove('bg-surface-container-lowest/95');
+            }
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>
