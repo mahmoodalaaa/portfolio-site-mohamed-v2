@@ -13,19 +13,19 @@ export default function Home() {
 
   const sliderImages = [
     {
-      src: '/images/2.jfif',
+      src: '/images/2.png',
       alt: t.fleetLongHaulTitle || 'Şehirlerarası Ticari Filo',
       title: t.fleetLongHaulTitle || 'Şehirlerarası Lojistik',
       description: t.fleetLongHaulDesc || 'Şehirler arası güvenli lojistik ve taşımacılık.'
     },
     {
-      src: '/images/3.jfif',
+      src: '/images/3.png',
       alt: t.fleetUrbanTitle || 'Kentsel Çevik Birimler',
       title: t.fleetUrbanTitle || 'Şehir İçi Taşımacılık',
       description: t.fleetUrbanDesc || 'Hızlı ve pratik kentsel nakliye çözümleri.'
     },
     {
-      src: '/images/4.jfif',
+      src: '/images/4.png',
       alt: t.serv3Title || 'Ev & Ofis Taşıma',
       title: t.serv3Title || 'Profesyonel Depolama',
       description: t.serv3Desc || 'Güvenli paketleme ve sigortalı nakliye hizmeti.'
@@ -38,42 +38,42 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
         <div className={`relative w-full max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center py-32 ${isRtl ? 'lg:text-right' : 'lg:text-left'}`}>
-          
+
           <ScrollReveal direction={isRtl ? 'right' : 'left'} className="space-y-8 flex flex-col items-start w-full">
             <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary font-label-sm uppercase tracking-widest text-xs rounded-none ${isRtl ? 'flex-row-reverse self-end' : 'self-start'}`}>
               <span className="material-symbols-outlined text-sm">verified</span>
               {t.heroBadge}
             </div>
-            
+
             <h1 className={`font-headline-xl text-headline-xl text-on-surface leading-tight w-full ${isRtl ? 'text-right' : 'text-left'}`}>
               <span className="gold-gradient-text">{t.heroGold}</span>
               <br />
               {t.heroWhite}
             </h1>
-            
+
             <p className={`font-body-lg text-on-surface-variant max-w-lg text-body-lg w-full ${isRtl ? 'text-right' : 'text-left'}`}>
               {t.heroDesc}
             </p>
-            
+
             <div className={`flex flex-wrap gap-4 pt-4 w-full ${isRtl ? 'flex-row-reverse justify-start' : 'justify-start'}`}>
-              <a 
-                href="https://wa.me/905373277186" 
-                target="_blank" 
+              <a
+                href="https://wa.me/905373277186"
+                target="_blank"
                 rel="noopener noreferrer"
                 className={`bg-primary text-on-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all flex items-center gap-3 font-bold ${isRtl ? 'flex-row-reverse' : ''}`}
               >
                 {t.heroQuote}
                 <span className={`material-symbols-outlined ${isRtl ? 'rotate-180' : ''}`}>arrow_forward</span>
               </a>
-              <Link 
-                href="#services" 
+              <Link
+                href="#services"
                 className="border border-primary text-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:bg-primary/5 transition-all font-bold"
               >
                 {t.heroServices}
               </Link>
             </div>
           </ScrollReveal>
-          
+
           <ScrollReveal direction={isRtl ? 'left' : 'right'} className="w-full">
             <div className="relative w-full aspect-[4/3] lg:aspect-square max-w-[512px] mx-auto lg:mx-0">
               <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
@@ -107,9 +107,9 @@ export default function Home() {
             <ScrollReveal direction="left" delay={100} className="flex flex-col">
               <div className="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden flex flex-col h-full">
                 <div className="aspect-video relative overflow-hidden bg-black">
-                  <Image 
-                    src="/images/partial_load.png" 
-                    alt={t.serv1Title} 
+                  <Image
+                    src="/images/partial_load.png"
+                    alt={t.serv1Title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 380px"
@@ -122,11 +122,11 @@ export default function Home() {
                       {t.serv1Desc}
                     </p>
                   </div>
-                  <Link 
-                    href="/fleet" 
+                  <Link
+                    href="/fleet"
                     className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                   >
-                    {t.details} 
+                    {t.details}
                     <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                   </Link>
                 </div>
@@ -137,9 +137,9 @@ export default function Home() {
             <ScrollReveal direction="up" delay={200} className="flex flex-col">
               <div className="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden flex flex-col h-full">
                 <div className="aspect-video relative overflow-hidden bg-black">
-                  <Image 
-                    src="/images/furniture_transport.png" 
-                    alt={t.serv2Title} 
+                  <Image
+                    src="/images/furniture_transport.png"
+                    alt={t.serv2Title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 380px"
@@ -152,11 +152,11 @@ export default function Home() {
                       {t.serv2Desc}
                     </p>
                   </div>
-                  <Link 
-                    href="/fleet" 
+                  <Link
+                    href="/fleet"
                     className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                   >
-                    {t.details} 
+                    {t.details}
                     <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                   </Link>
                 </div>
@@ -177,11 +177,11 @@ export default function Home() {
                       {t.serv3Desc}
                     </p>
                   </div>
-                  <Link 
-                    href="/fleet" 
+                  <Link
+                    href="/fleet"
                     className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                   >
-                    {t.details} 
+                    {t.details}
                     <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                   </Link>
                 </div>
@@ -194,13 +194,13 @@ export default function Home() {
       {/* About Section */}
       <section className="py-32 bg-surface-container-lowest relative" id="about">
         <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          
+
           <ScrollReveal direction={isRtl ? 'right' : 'left'} className="w-full">
             <div className="relative w-full aspect-square max-w-[480px] mx-auto">
               <div className="w-full h-full bg-surface-container-highest border border-primary/10 relative overflow-hidden">
-                <Image 
-                  src="/images/logistics_specialist.png" 
-                  alt="Şahin Nakliye Professional Logistics Specialist" 
+                <Image
+                  src="/images/logistics_specialist.png"
+                  alt="Şahin Nakliye Professional Logistics Specialist"
                   fill
                   className="object-cover opacity-90 transition-opacity duration-300 hover:opacity-100"
                   sizes="(max-width: 1024px) 100vw, 480px"
@@ -218,7 +218,7 @@ export default function Home() {
             <p className="font-body-lg text-on-surface leading-relaxed text-body-lg">
               {t.aboutDesc}
             </p>
-            
+
             <div className="space-y-6 w-full">
               <div className={`flex items-start gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
                 <div className="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
@@ -229,7 +229,7 @@ export default function Home() {
                   <p className="font-body-md text-on-surface-variant text-body-md mt-1">{t.aboutCard1Desc}</p>
                 </div>
               </div>
-              
+
               <div className={`flex items-start gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
                 <div className="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-primary text-sm">done_all</span>

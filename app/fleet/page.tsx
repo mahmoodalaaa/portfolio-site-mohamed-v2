@@ -27,13 +27,13 @@ export default function FleetPage() {
       {/* Fleet Grid (Bento Style) */}
       <section className="max-w-container-max mx-auto px-margin-desktop mb-32">
         <div className={`grid grid-cols-1 md:grid-cols-12 gap-gutter ${isRtl ? 'direction-rtl' : ''}`}>
-          
+
           {/* Main Feature: Long-Haul */}
           <ScrollReveal direction={isRtl ? 'right' : 'left'} className="md:col-span-8 h-full">
             <div className="group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500 min-h-[400px] md:min-h-[500px] h-full">
-              <Image 
-                src="/images/truck_warehouse.png" 
-                alt={t.fleetLongHaulTitle} 
+              <Image
+                src="/images/truck_warehouse.png"
+                alt={t.fleetLongHaulTitle}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 800px"
@@ -56,9 +56,9 @@ export default function FleetPage() {
           {/* Secondary Item: Urban Agile */}
           <ScrollReveal direction={isRtl ? 'left' : 'right'} className="md:col-span-4 h-full">
             <div className="group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500 min-h-[400px] md:min-h-[500px] h-full">
-              <Image 
-                src="/images/delivery_van_night.png" 
-                alt={t.fleetUrbanTitle} 
+              <Image
+                src="/images/delivery_van_night.png"
+                alt={t.fleetUrbanTitle}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 400px"
@@ -81,9 +81,9 @@ export default function FleetPage() {
           {/* Tertiary Item: Specialized Handling */}
           <ScrollReveal direction={isRtl ? 'right' : 'left'} className="md:col-span-4 h-full">
             <div className="group relative overflow-hidden bg-surface-container border-t-2 border-primary gold-glow transition-all duration-500 min-h-[300px] h-full">
-              <Image 
-                src="/images/1.jfif" 
-                alt={t.fleetSpecialTitle} 
+              <Image
+                src="/images/1.png"
+                alt={t.fleetSpecialTitle}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 400px"
@@ -119,7 +119,7 @@ export default function FleetPage() {
       <section className="bg-surface-container-low py-32 border-y border-primary/10">
         <div className="max-w-container-max mx-auto px-margin-desktop">
           <div className={`grid md:grid-cols-2 gap-24 items-center ${isRtl ? 'direction-rtl' : ''}`}>
-            
+
             <ScrollReveal direction={isRtl ? 'right' : 'left'} className={`space-y-6 ${isRtl ? 'order-1 md:order-2 text-right' : 'order-1 text-left'}`}>
               <h2 className="font-headline-xl text-headline-xl text-primary uppercase leading-none">
                 {t.fleetAssemblyTitle}
@@ -145,13 +145,13 @@ export default function FleetPage() {
                 </li>
               </ul>
             </ScrollReveal>
-            
+
             <ScrollReveal direction={isRtl ? 'left' : 'right'} className={`relative w-full aspect-square max-w-[480px] mx-auto ${isRtl ? 'order-2 md:order-1' : 'order-2'}`}>
               <div className="absolute -top-8 -left-8 w-32 h-32 border-l-4 border-t-4 border-primary/30 pointer-events-none" />
               <div className="w-full h-full relative border border-primary/20 shadow-2xl overflow-hidden">
-                <Image 
-                  src="/images/furniture_transport.png" 
-                  alt="Furniture Montage Care" 
+                <Image
+                  src="/images/furniture_transport.png"
+                  alt="Furniture Montage Care"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 480px"
@@ -169,19 +169,19 @@ export default function FleetPage() {
       <section className="py-32">
         <div className="max-w-container-max mx-auto px-margin-desktop">
           <div className={`grid md:grid-cols-2 gap-24 items-center ${isRtl ? 'direction-rtl' : ''}`}>
-            
+
             <ScrollReveal direction={isRtl ? 'right' : 'left'} className={`relative w-full aspect-video max-w-[560px] mx-auto ${isRtl ? 'order-2' : 'order-2 md:order-1'}`}>
               <div className="w-full h-full relative border-l-4 border-primary shadow-2xl overflow-hidden min-h-[300px]">
-                <Image 
-                  src="/images/truck_warehouse.png" 
-                  alt="B2B Logistics" 
+                <Image
+                  src="/images/truck_warehouse.png"
+                  alt="B2B Logistics"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 560px"
                 />
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal direction={isRtl ? 'left' : 'right'} className={`space-y-6 ${isRtl ? 'order-1 text-right flex flex-col items-end' : 'order-1 md:order-2 text-left'}`}>
               <h2 className="font-headline-xl text-headline-xl text-primary uppercase leading-none">
                 {t.fleetB2BTitle}
