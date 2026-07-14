@@ -20,42 +20,42 @@ export default function Home() {
               <span className="material-symbols-outlined text-sm">verified</span>
               {t.heroBadge}
             </div>
-            
+
             <h1 className="font-headline-xl text-headline-xl text-on-surface leading-tight">
               <span className="gold-gradient-text">{t.heroGold}</span>
               <br />
               {t.heroWhite}
             </h1>
-            
+
             <p className="font-body-lg text-on-surface-variant max-w-lg text-body-lg">
               {t.heroDesc}
             </p>
-            
+
             <div className={`flex flex-wrap gap-4 pt-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
-              <a 
-                href="https://wa.me/905373277186" 
-                target="_blank" 
+              <a
+                href="https://wa.me/905373277186"
+                target="_blank"
                 rel="noopener noreferrer"
                 className={`bg-primary text-on-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all flex items-center gap-3 font-bold ${isRtl ? 'flex-row-reverse' : ''}`}
               >
                 {t.heroQuote}
                 <span className={`material-symbols-outlined ${isRtl ? 'rotate-180' : ''}`}>arrow_forward</span>
               </a>
-              <Link 
-                href="#services" 
+              <Link
+                href="#services"
                 className="border border-primary text-primary px-10 py-4 font-headline-md uppercase tracking-wider hover:bg-primary/5 transition-all font-bold"
               >
                 {t.heroServices}
               </Link>
             </div>
           </div>
-          
+
           <div className="relative group w-full aspect-[4/3] lg:aspect-square max-w-[512px] mx-auto lg:mx-0">
             <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
             <div className="relative z-10 w-full h-full border border-primary/20 shadow-2xl overflow-hidden group">
-              <Image 
-                src="/images/hero_truck_sunset.png" 
-                alt="Şahin Nakliye Modern Truck Sunset" 
+              <Image
+                src="/images/hero_truck_sunset.png"
+                alt="Şahin Nakliye Modern Truck Sunset"
                 fill
                 priority
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -89,9 +89,9 @@ export default function Home() {
             {/* Service 1: Partial Load */}
             <div className="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden flex flex-col">
               <div className="aspect-video relative overflow-hidden bg-black">
-                <Image 
-                  src="/images/partial_load.png" 
-                  alt={t.serv1Title} 
+                <Image
+                  src="/images/partial_load.png"
+                  alt={t.serv1Title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 380px"
@@ -104,11 +104,11 @@ export default function Home() {
                     {t.serv1Desc}
                   </p>
                 </div>
-                <Link 
-                  href="/fleet" 
+                <Link
+                  href="/fleet"
                   className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                 >
-                  {t.details} 
+                  {t.details}
                   <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                 </Link>
               </div>
@@ -117,9 +117,9 @@ export default function Home() {
             {/* Service 2: Furniture Transport */}
             <div className="group bg-surface-container-high border border-primary/10 transition-all duration-500 hover:border-primary/40 overflow-hidden flex flex-col">
               <div className="aspect-video relative overflow-hidden bg-black">
-                <Image 
-                  src="/images/furniture_transport.png" 
-                  alt={t.serv2Title} 
+                <Image
+                  src="/images/furniture_transport.png"
+                  alt={t.serv2Title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 380px"
@@ -132,11 +132,11 @@ export default function Home() {
                     {t.serv2Desc}
                   </p>
                 </div>
-                <Link 
-                  href="/fleet" 
+                <Link
+                  href="/fleet"
                   className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                 >
-                  {t.details} 
+                  {t.details}
                   <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                 </Link>
               </div>
@@ -155,11 +155,11 @@ export default function Home() {
                     {t.serv3Desc}
                   </p>
                 </div>
-                <Link 
-                  href="/fleet" 
+                <Link
+                  href="/fleet"
                   className={`inline-flex items-center gap-2 text-primary font-label-sm uppercase hover:gap-4 transition-all text-xs font-bold ${isRtl ? 'flex-row-reverse self-start' : 'self-start'}`}
                 >
-                  {t.details} 
+                  {t.details}
                   <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>chevron_right</span>
                 </Link>
               </div>
@@ -173,9 +173,9 @@ export default function Home() {
         <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="relative w-full aspect-square max-w-[480px] mx-auto">
             <div className="w-full h-full bg-surface-container-highest border border-primary/10 relative overflow-hidden">
-              <Image 
-                src="/images/logistics_specialist.png" 
-                alt="Şahin Nakliye Professional Logistics Specialist" 
+              <Image
+                src="/images/logistics_specialist.png"
+                alt="Şahin Nakliye Professional Logistics Specialist"
                 fill
                 className="object-cover opacity-90 transition-opacity duration-300 hover:opacity-100"
                 sizes="(max-width: 1024px) 100vw, 480px"
@@ -192,7 +192,7 @@ export default function Home() {
             <p className="font-body-lg text-on-surface leading-relaxed text-body-lg">
               {t.aboutDesc}
             </p>
-            
+
             <div className="space-y-6 w-full">
               <div className={`flex items-start gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
                 <div className="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
@@ -203,7 +203,7 @@ export default function Home() {
                   <p className="font-body-md text-on-surface-variant text-body-md mt-1">{t.aboutCard1Desc}</p>
                 </div>
               </div>
-              
+
               <div className={`flex items-start gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
                 <div className="w-10 h-10 rounded-full border border-primary flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-primary text-sm">done_all</span>
