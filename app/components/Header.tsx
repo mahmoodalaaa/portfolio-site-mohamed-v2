@@ -10,6 +10,7 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -32,10 +33,8 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', label: t.navHome },
-    { href: '/#services', label: t.navServices },
     { href: '/fleet', label: t.navFleet },
-    { href: '/products', label: t.navEquipment },
-    { href: '/#contact', label: t.navContact }
+    { href: '/products', label: t.navEquipment }
   ];
 
   const handleLangSelect = (lang: Language) => {
@@ -56,12 +55,12 @@ export default function Header() {
       <div className={`flex justify-between items-center px-margin-desktop h-full w-full max-w-container-max mx-auto ${isRtl ? 'flex-row-reverse' : ''}`}>
         <div className={`flex items-center gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-10 h-10 overflow-hidden bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+            <div className="relative w-14 h-14 overflow-hidden bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
               <Image 
                 src="/images/logo.png" 
                 alt="Şahin Nakliye Logo" 
-                width={36} 
-                height={36} 
+                width={48} 
+                height={48} 
                 className="object-contain"
               />
             </div>
@@ -73,7 +72,7 @@ export default function Header() {
 
         <nav className={`hidden md:flex items-center gap-8 font-body-md text-body-md ${isRtl ? 'flex-row-reverse' : ''}`}>
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (pathname === '/' && link.href.startsWith('/#'));
+            const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
@@ -91,7 +90,8 @@ export default function Header() {
         </nav>
 
         <div className={`flex items-center gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
-          <div className="relative">
+          {/* Desktop Language Selector */}
+          <div className="relative hidden md:block">
             <button 
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className={`flex items-center gap-2 text-on-surface-variant hover:text-primary transition-all duration-300 ${isRtl ? 'flex-row-reverse' : ''}`}
@@ -123,8 +123,66 @@ export default function Header() {
               </>
             )}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-colors"
+            aria-label="Toggle mobile menu"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {mobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Dropdown Overlay */}
+      {mobileMenuOpen && (
+        <div 
+          className={`md:hidden fixed left-0 right-0 bg-surface-container-lowest/98 backdrop-blur-lg border-b border-primary/10 shadow-2xl z-40 transition-all duration-300 ${
+            isScrolled ? 'top-16' : 'top-20'
+          }`}
+        >
+          <nav className={`flex flex-col p-6 gap-6 font-body-md text-body-md ${isRtl ? 'text-right' : 'text-left'}`}>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`py-2 border-b border-primary/5 transition-colors ${
+                    isActive ? 'text-primary font-bold' : 'text-on-surface-variant hover:text-primary'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            
+            {/* Inline Language Selector inside Mobile Menu */}
+            <div className={`flex flex-wrap gap-3 pt-4 border-t border-primary/10 ${isRtl ? 'justify-end' : 'justify-start'}`}>
+              {(['tr', 'en', 'ar'] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => {
+                    setLanguage(lang);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`px-3 py-1 text-xs border rounded transition-colors ${
+                    language === lang 
+                      ? 'border-primary bg-primary/10 text-primary font-bold' 
+                      : 'border-primary/20 text-on-surface-variant hover:text-primary'
+                  }`}
+                >
+                  {lang === 'tr' ? 'TR' : lang === 'en' ? 'EN' : 'AR'}
+                </button>
+              ))}
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

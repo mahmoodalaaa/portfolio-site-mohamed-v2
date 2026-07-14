@@ -10,16 +10,16 @@ export default function Footer() {
   const isRtl = language === 'ar';
 
   return (
-    <footer className="bg-surface-container-lowest border-t border-primary/10 pt-20 pb-12 relative z-10">
-      <div className={`max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20 ${isRtl ? 'md:text-right' : 'md:text-left'}`}>
+    <footer id="contact" className="bg-surface-container-lowest border-t border-primary/10 pt-20 pb-12 relative z-10">
+      <div className={`max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter mb-20 ${isRtl ? 'md:text-right' : 'md:text-left'}`}>
         <div className={`md:col-span-2 space-y-6 flex flex-col ${isRtl ? 'items-end' : 'items-start'}`}>
           <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12 overflow-hidden bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+            <div className="relative w-20 h-20 overflow-hidden bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
               <Image 
                 src="/images/logo.png" 
                 alt="Şahin Nakliye Logo" 
-                width={40} 
-                height={40} 
+                width={72} 
+                height={72} 
                 className="object-contain"
               />
             </div>
@@ -56,16 +56,6 @@ export default function Footer() {
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/#services">{t.navServices}</Link></li>
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/fleet">{t.navFleet}</Link></li>
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/products">{t.navEquipment}</Link></li>
-          </ul>
-        </div>
-
-        <div className="space-y-6">
-          <h4 className="font-headline-md text-body-lg text-primary uppercase">{t.footerCorporate}</h4>
-          <ul className="space-y-4 font-body-md">
-            <li><a className="text-on-surface-variant hover:text-primary transition-all" href="#">{t.footerPrivacy}</a></li>
-            <li><a className="text-on-surface-variant hover:text-primary transition-all" href="#">{t.footerTerms}</a></li>
-            <li><a className="text-on-surface-variant hover:text-primary transition-all" href="#">FAQ</a></li>
-            <li><a className="text-on-surface-variant hover:text-primary transition-all" href="#">Support</a></li>
           </ul>
         </div>
       </div>

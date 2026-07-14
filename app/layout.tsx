@@ -18,6 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="dark h-full antialiased selection:bg-primary/30 selection:text-primary">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Work+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-on-surface">
         <LanguageProvider>
           <BackgroundShader />
