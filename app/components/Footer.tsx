@@ -55,7 +55,6 @@ export default function Footer() {
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/">{t.navHome}</Link></li>
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/#services">{t.navServices}</Link></li>
             <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/fleet">{t.navFleet}</Link></li>
-            <li><Link className="text-on-surface-variant hover:text-primary transition-all" href="/products">{t.navEquipment}</Link></li>
           </ul>
         </div>
       </div>

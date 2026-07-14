@@ -33,8 +33,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', label: t.navHome },
-    { href: '/fleet', label: t.navFleet },
-    { href: '/products', label: t.navEquipment }
+    { href: '/fleet', label: t.navFleet }
   ];
 
   const handleLangSelect = (lang: Language) => {

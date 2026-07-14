@@ -5,10 +5,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from './locales';
 import ScrollReveal from './components/ScrollReveal';
+import ImageSlider from './components/ImageSlider';
 
 export default function Home() {
   const { language, t } = useLanguage();
   const isRtl = language === 'ar';
+
+  const sliderImages = [
+    {
+      src: '/images/hero_truck_sunset.png',
+      alt: t.fleetLongHaulTitle || 'Şehirlerarası Ticari Filo',
+      title: t.fleetLongHaulTitle || 'Şehirlerarası Lojistik',
+      description: t.fleetLongHaulDesc || 'Şehirler arası güvenli lojistik ve taşımacılık.'
+    },
+    {
+      src: '/images/delivery_van_night.png',
+      alt: t.fleetUrbanTitle || 'Kentsel Çevik Birimler',
+      title: t.fleetUrbanTitle || 'Şehir İçi Taşımacılık',
+      description: t.fleetUrbanDesc || 'Hızlı ve pratik kentsel nakliye çözümleri.'
+    },
+    {
+      src: '/images/truck_warehouse.png',
+      alt: t.serv3Title || 'Ev & Ofis Taşıma',
+      title: t.serv3Title || 'Profesyonel Depolama',
+      description: t.serv3Desc || 'Güvenli paketleme ve sigortalı nakliye hizmeti.'
+    }
+  ];
 
   return (
     <div className="flex-1 bg-background text-on-surface">
@@ -53,18 +75,9 @@ export default function Home() {
           </ScrollReveal>
           
           <ScrollReveal direction={isRtl ? 'left' : 'right'} className="w-full">
-            <div className="relative group w-full aspect-[4/3] lg:aspect-square max-w-[512px] mx-auto lg:mx-0">
+            <div className="relative w-full aspect-[4/3] lg:aspect-square max-w-[512px] mx-auto lg:mx-0">
               <div className="absolute -inset-4 bg-primary/5 blur-3xl rounded-full pointer-events-none" />
-              <div className="relative z-10 w-full h-full border border-primary/20 shadow-2xl overflow-hidden group">
-                <Image 
-                  src="/images/hero_truck_sunset.png" 
-                  alt="Şahin Nakliye Modern Truck Sunset" 
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 512px"
-                />
-              </div>
+              <ImageSlider images={sliderImages} isRtl={isRtl} />
             </div>
           </ScrollReveal>
         </div>
