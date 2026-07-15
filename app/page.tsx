@@ -13,8 +13,8 @@ export default function Home() {
 
   const sliderImages = [
     {
-      src: '/images/hero_truck_sunset.png',
-      alt: t.fleetLongHaulTitle || 'Şehirlerarası Ticari Filo'
+      src: '/images/1.png',
+      alt: t.fleetSpecialTitle || 'Özel Taşıma'
     },
     {
       src: '/images/2.png',
