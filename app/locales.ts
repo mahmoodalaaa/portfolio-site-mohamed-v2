@@ -65,7 +65,12 @@ export const locales = {
     footerCorporate: 'Kurumsal',
     footerPrivacy: 'Gizlilik Politikası',
     footerTerms: 'Kullanım Şartları',
-    footerRights: '© 2026 Şahin Nakliye & Yük Taşımacılığı. Tüm hakları saklıdır.'
+    footerRights: '© 2026 Şahin Nakliye & Yük Taşımacılığı. Tüm hakları saklıdır.',
+    fleetContactTitle: 'Yönetici ile İletişim',
+    fleetContactDesc: 'Taşıma detayları, fiyat teklifleri ve lojistik sorularınız için yöneticilerimizle doğrudan iletişim kurabilirsiniz.',
+    fleetCallNow: 'Ara',
+    fleetWhatsApp: 'WhatsApp',
+    fleetManagerLabel: 'YÖNETİCİ'
   },
   en: {
     dir: 'ltr',
@@ -129,7 +134,12 @@ export const locales = {
     footerCorporate: 'Corporate',
     footerPrivacy: 'Privacy Policy',
     footerTerms: 'Terms of Service',
-    footerRights: '© 2026 Şahin Nakliye & Freight Transport. All rights reserved.'
+    footerRights: '© 2026 Şahin Nakliye & Freight Transport. All rights reserved.',
+    fleetContactTitle: 'Contact Manager',
+    fleetContactDesc: 'Get in touch with our managers directly for transport details, price quotes, and logistics inquiries.',
+    fleetCallNow: 'Call',
+    fleetWhatsApp: 'WhatsApp',
+    fleetManagerLabel: 'MANAGER'
   },
   ar: {
     dir: 'rtl',
@@ -193,7 +203,12 @@ export const locales = {
     footerCorporate: 'الشركة',
     footerPrivacy: 'سياسة الخصوصية',
     footerTerms: 'شروط الخدمة',
-    footerRights: '© ٢٠٢٦ صقر للنقل والشحن. جميع الحقوق محفوظة.'
+    footerRights: '© ٢٠٢٦ صقر للنقل والشحن. جميع الحقوق محفوظة.',
+    fleetContactTitle: 'الاتصال بالمدير',
+    fleetContactDesc: 'يمكنك التواصل مع مديرينا مباشرة للحصول على تفاصيل النقل وعروض الأسعار والاستفسارات اللوجستية.',
+    fleetCallNow: 'اتصال',
+    fleetWhatsApp: 'واتساب',
+    fleetManagerLabel: 'المدير المسؤول'
   }
 };
 
