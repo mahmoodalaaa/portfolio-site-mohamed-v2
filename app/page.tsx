@@ -32,143 +32,151 @@ export default function Home() {
 
   return (
     <div className="flex-1 bg-background text-on-surface">
-      {/* Hero Section with Slider & Connection Card */}
-      <section className="max-w-container-max mx-auto px-margin-desktop mb-24 mt-28">
-        <ScrollReveal direction="up">
-          <div className="relative w-full h-[550px] md:h-[650px] overflow-hidden border border-primary/20 shadow-2xl gold-glow bg-surface-container flex flex-col justify-end">
+      {/* Hero Section with Responsive Slider & Connection Card */}
+      <section className="relative w-full lg:h-[calc(100vh-5rem)] mt-20 overflow-hidden bg-background flex flex-col lg:block">
+        <ScrollReveal direction="up" className="w-full h-full">
+          <div className="relative w-full h-full flex flex-col justify-end">
             
             {/* Background Image Slider */}
-            <div className="absolute inset-0 z-0 select-none">
-              <ImageSlider images={sliderImages} isRtl={isRtl} autoPlayInterval={6000} />
+            <div className="relative lg:absolute lg:inset-0 w-full h-[35vh] sm:h-[45vh] lg:h-full lg:z-0 select-none">
+              <ImageSlider 
+                images={sliderImages} 
+                isRtl={isRtl} 
+                autoPlayInterval={6000} 
+                className="relative w-full h-full overflow-hidden group select-none" 
+              />
+              
+              {/* Gradient Overlay on image */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-black/40 to-transparent lg:to-black/25 z-10 pointer-events-none" />
             </div>
 
-            {/* Gradient Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-black/35 z-10 pointer-events-none" />
-
-            {/* Static Content overlay */}
-            <div className="relative z-20 p-6 md:p-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pointer-events-none">
-              
-              {/* Text Info */}
-              <div className={`lg:col-span-7 space-y-4 pointer-events-auto ${isRtl ? 'lg:text-right text-right' : 'text-left'}`}>
-                <div className={`inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-label-sm uppercase tracking-widest text-[10px] ${isRtl ? 'flex-row-reverse' : ''}`}>
-                  <span className="material-symbols-outlined text-xs">verified</span>
-                  {t.heroBadge}
-                </div>
-
-                <h1 className="font-headline-xl text-headline-xl text-white uppercase leading-tight drop-shadow-lg">
-                  <span className="gold-gradient-text">{t.heroGold}</span>
-                  <br />
-                  {t.heroWhite}
-                </h1>
+            {/* Static Content overlay - absolute on desktop, normal block flow on mobile */}
+            <div className="relative lg:absolute lg:inset-0 z-20 flex items-center pointer-events-none mt-6 lg:mt-0 pb-16 lg:pb-0">
+              <div className="max-w-container-max mx-auto px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pointer-events-auto">
                 
-                <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl drop-shadow">
-                  {t.heroDesc}
-                </p>
+                {/* Text Info */}
+                <div className={`lg:col-span-7 space-y-4 lg:space-y-6 ${isRtl ? 'lg:text-right text-right' : 'text-left'}`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-label-sm uppercase tracking-widest text-[10px] ${isRtl ? 'flex-row-reverse' : ''}`}>
+                    <span className="material-symbols-outlined text-xs">verified</span>
+                    {t.heroBadge}
+                  </div>
 
-                <div className={`flex flex-wrap gap-4 pt-2 ${isRtl ? 'flex-row-reverse justify-start' : 'justify-start'}`}>
-                  <a
-                    href="https://wa.me/905373277186"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`bg-primary text-on-primary px-8 py-3.5 font-headline-md text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all flex items-center gap-2.5 font-bold ${isRtl ? 'flex-row-reverse' : ''}`}
-                  >
-                    {t.heroQuote}
-                    <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>arrow_forward</span>
-                  </a>
-                  <Link
-                    href="#services"
-                    className="border border-primary text-primary px-8 py-3.5 font-headline-md text-sm uppercase tracking-wider hover:bg-primary/5 transition-all font-bold"
-                  >
-                    {t.heroServices}
-                  </Link>
-                </div>
-              </div>
+                  <h1 className="font-headline-xl text-3xl sm:text-4xl lg:text-headline-xl text-white uppercase leading-tight drop-shadow-lg">
+                    <span className="gold-gradient-text">{t.heroGold}</span>
+                    <br />
+                    {t.heroWhite}
+                  </h1>
+                  
+                  <p className="font-body-lg text-sm sm:text-base lg:text-body-lg text-on-surface-variant max-w-xl drop-shadow">
+                    {t.heroDesc}
+                  </p>
 
-              {/* Manager Connection Card */}
-              <div className={`lg:col-span-5 w-full flex justify-center pointer-events-auto ${isRtl ? 'lg:justify-start' : 'lg:justify-end'}`}>
-                <div className="w-full max-w-[380px] bg-surface-container-lowest/85 backdrop-blur-md border border-primary/20 p-6 md:p-8 shadow-2xl flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className={`flex items-center gap-3 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                      <span className="material-symbols-outlined text-primary text-3xl">contact_phone</span>
-                      <div className={isRtl ? 'text-right' : 'text-left'}>
-                        <h4 className="font-headline-md text-sm text-white uppercase tracking-wider font-bold">
-                          {t.fleetContactTitle}
-                        </h4>
-                        <span className="font-label-sm text-[10px] text-primary uppercase font-bold">
-                          {t.fleetManagerLabel}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <p className={`font-body-md text-xs text-on-surface-variant leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
-                      {t.fleetContactDesc}
-                    </p>
-
-                    {/* Manager 1 Info */}
-                    <div className="border-t border-primary/10 pt-4 space-y-3">
-                      <div className={`flex justify-between items-center ${isRtl ? 'flex-row-reverse' : ''}`}>
-                        <div className={`flex flex-col ${isRtl ? 'items-end' : 'items-start'}`}>
-                          <span className="font-headline-md text-xs text-white font-bold">Mustafa Şahin</span>
-                          <span className="font-mono text-xs text-on-surface-variant">0537 327 71 86</span>
-                        </div>
-                        <div className="flex gap-2">
-                          <a 
-                            href="tel:05373277186" 
-                            className="w-8 h-8 rounded-full border border-primary/20 hover:border-primary text-primary flex items-center justify-center transition-all bg-primary/5 hover:bg-primary/10"
-                            title={t.fleetCallNow}
-                          >
-                            <span className="material-symbols-outlined text-sm">call</span>
-                          </a>
-                          <a 
-                            href="https://wa.me/905373277186" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="w-8 h-8 rounded-full border border-green-500/20 hover:border-green-500 text-green-500 flex items-center justify-center transition-all bg-green-500/5 hover:bg-green-500/10"
-                            title={t.fleetWhatsApp}
-                          >
-                            <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.371a9.945 9.945 0 0 0 4.779 1.21h.004c5.505 0 9.988-4.478 9.99-9.987A9.965 9.965 0 0 0 12.012 2Zm5.834 14.167c-.243.684-1.2 1.25-1.646 1.302-.447.051-.892.25-2.887-.534-2.552-1.004-4.184-3.578-4.312-3.748-.127-.17-1.042-1.385-1.042-2.644 0-1.26.658-1.879.891-2.128.234-.249.51-.311.68-.311h.488c.149 0 .34.021.488.382.16.382.532 1.302.574 1.386.043.085.075.18.01.31-.064.13-.106.213-.213.34-.106.128-.223.287-.319.383-.106.106-.218.223-.09.436.128.213.564.925 1.213 1.502.835.744 1.536.973 1.749 1.079.213.106.34.085.468-.064.128-.149.553-.638.702-.85.149-.213.298-.18.51-.106.213.074 1.339.632 1.567.748.228.117.382.17.436.266.053.096.053.553-.19.1.12.001 0 0 0 0Z"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Manager 2 Info */}
-                    <div className="border-t border-primary/5 pt-3 space-y-3">
-                      <div className={`flex justify-between items-center ${isRtl ? 'flex-row-reverse' : ''}`}>
-                        <div className={`flex flex-col ${isRtl ? 'items-end' : 'items-start'}`}>
-                          <span className="font-headline-md text-xs text-white font-bold">Muhammet Şahin</span>
-                          <span className="font-mono text-xs text-on-surface-variant">0531 541 29 75</span>
-                        </div>
-                        <div className="flex gap-2">
-                          <a 
-                            href="tel:05315412975" 
-                            className="w-8 h-8 rounded-full border border-primary/20 hover:border-primary text-primary flex items-center justify-center transition-all bg-primary/5 hover:bg-primary/10"
-                            title={t.fleetCallNow}
-                          >
-                            <span className="material-symbols-outlined text-sm">call</span>
-                          </a>
-                          <a 
-                            href="https://wa.me/905315412975" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="w-8 h-8 rounded-full border border-green-500/20 hover:border-green-500 text-green-500 flex items-center justify-center transition-all bg-green-500/5 hover:bg-green-500/10"
-                            title={t.fleetWhatsApp}
-                          >
-                            <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.371a9.945 9.945 0 0 0 4.779 1.21h.004c5.505 0 9.988-4.478 9.99-9.987A9.965 9.965 0 0 0 12.012 2Zm5.834 14.167c-.243.684-1.2 1.25-1.646 1.302-.447.051-.892.25-2.887-.534-2.552-1.004-4.184-3.578-4.312-3.748-.127-.17-1.042-1.385-1.042-2.644 0-1.26.658-1.879.891-2.128.234-.249.51-.311.68-.311h.488c.149 0 .34.021.488.382.16.382.532 1.302.574 1.386.043.085.075.18.01.31-.064.13-.106.213-.213.34-.106.128-.223.287-.319.383-.106.106-.218.223-.09.436.128.213.564.925 1.213 1.502.835.744 1.536.973 1.749 1.079.213.106.34.085.468-.064.128-.149.553-.638.702-.85.149-.213.298-.18.51-.106.213.074 1.339.632 1.567.748.228.117.382.17.436.266.053.096.053.553-.19.1.12.001 0 0 0 0Z"/>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
+                  <div className={`flex flex-wrap gap-4 pt-2 ${isRtl ? 'flex-row-reverse justify-start' : 'justify-start'}`}>
+                    <a
+                      href="https://wa.me/905373277186"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`bg-primary text-on-primary px-8 py-3.5 font-headline-md text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all flex items-center gap-2.5 font-bold ${isRtl ? 'flex-row-reverse' : ''}`}
+                    >
+                      {t.heroQuote}
+                      <span className={`material-symbols-outlined text-sm ${isRtl ? 'rotate-180' : ''}`}>arrow_forward</span>
+                    </a>
+                    <Link
+                      href="#services"
+                      className="border border-primary text-primary px-8 py-3.5 font-headline-md text-sm uppercase tracking-wider hover:bg-primary/5 transition-all font-bold"
+                    >
+                      {t.heroServices}
+                    </Link>
                   </div>
                 </div>
-              </div>
 
+                {/* Manager Connection Card */}
+                <div className={`lg:col-span-5 w-full flex justify-center mt-6 lg:mt-0`}>
+                  <div className="w-full max-w-[380px] bg-surface-container-lowest border border-primary/20 p-5 md:p-6 lg:p-8 shadow-2xl gold-glow flex flex-col justify-between">
+                    <div className="space-y-3 lg:space-y-4">
+                      <div className={`flex items-center gap-3 ${isRtl ? 'flex-row-reverse' : ''}`}>
+                        <span className="material-symbols-outlined text-primary text-2xl lg:text-3xl">contact_phone</span>
+                        <div className={isRtl ? 'text-right' : 'text-left'}>
+                          <h4 className="font-headline-md text-xs sm:text-sm lg:text-base text-white uppercase tracking-wider font-bold">
+                            {t.fleetContactTitle}
+                          </h4>
+                          <span className="font-label-sm text-[9px] lg:text-[10px] text-primary uppercase font-bold">
+                            {t.fleetManagerLabel}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <p className={`font-body-md text-[11px] sm:text-xs text-on-surface-variant leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
+                        {t.fleetContactDesc}
+                      </p>
+
+                      {/* Manager 1 Info */}
+                      <div className="border-t border-primary/10 pt-3 lg:pt-4 space-y-2 lg:space-y-3">
+                        <div className={`flex justify-between items-center ${isRtl ? 'flex-row-reverse' : ''}`}>
+                          <div className={`flex flex-col ${isRtl ? 'items-end' : 'items-start'}`}>
+                            <span className="font-headline-md text-xs lg:text-sm text-white font-bold">Mustafa Şahin</span>
+                            <span className="font-mono text-xs text-on-surface-variant">0537 327 71 86</span>
+                          </div>
+                          <div className="flex gap-2">
+                            <a 
+                              href="tel:05373277186" 
+                              className="w-8 h-8 rounded-full border border-primary/20 hover:border-primary text-primary flex items-center justify-center transition-all bg-primary/5 hover:bg-primary/10"
+                              title={t.fleetCallNow}
+                            >
+                              <span className="material-symbols-outlined text-sm">call</span>
+                            </a>
+                            <a 
+                              href="https://wa.me/905373277186" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full border border-green-500/20 hover:border-green-500 text-green-500 flex items-center justify-center transition-all bg-green-500/5 hover:bg-green-500/10"
+                              title={t.fleetWhatsApp}
+                            >
+                              <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.371a9.945 9.945 0 0 0 4.779 1.21h.004c5.505 0 9.988-4.478 9.99-9.987A9.965 9.965 0 0 0 12.012 2Zm5.834 14.167c-.243.684-1.2 1.25-1.646 1.302-.447.051-.892.25-2.887-.534-2.552-1.004-4.184-3.578-4.312-3.748-.127-.17-1.042-1.385-1.042-2.644 0-1.26.658-1.879.891-2.128.234-.249.51-.311.68-.311h.488c.149 0 .34.021.488.382.16.382.532 1.302.574 1.386.043.085.075.18.01.31-.064.13-.106.213-.213.34-.106.128-.223.287-.319.383-.106.106-.218.223-.09.436.128.213.564.925 1.213 1.502.835.744 1.536.973 1.749 1.079.213.106.34.085.468-.064.128-.149.553-.638.702-.85.149-.213.298-.18.51-.106.213.074 1.339.632 1.567.748.228.117.382.17.436.266.053.096.053.553-.19.1.12.001 0 0 0 0Z"/>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Manager 2 Info */}
+                      <div className="border-t border-primary/5 pt-2 lg:pt-3 space-y-2 lg:space-y-3">
+                        <div className={`flex justify-between items-center ${isRtl ? 'flex-row-reverse' : ''}`}>
+                          <div className={`flex flex-col ${isRtl ? 'items-end' : 'items-start'}`}>
+                            <span className="font-headline-md text-xs lg:text-sm text-white font-bold">Muhammet Şahin</span>
+                            <span className="font-mono text-xs text-on-surface-variant">0531 541 29 75</span>
+                          </div>
+                          <div className="flex gap-2">
+                            <a 
+                              href="tel:05315412975" 
+                              className="w-8 h-8 rounded-full border border-primary/20 hover:border-primary text-primary flex items-center justify-center transition-all bg-primary/5 hover:bg-primary/10"
+                              title={t.fleetCallNow}
+                            >
+                              <span className="material-symbols-outlined text-sm">call</span>
+                            </a>
+                            <a 
+                              href="https://wa.me/905315412975" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="w-8 h-8 rounded-full border border-green-500/20 hover:border-green-500 text-green-500 flex items-center justify-center transition-all bg-green-500/5 hover:bg-green-500/10"
+                              title={t.fleetWhatsApp}
+                            >
+                              <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.993L2 22l5.233-1.371a9.945 9.945 0 0 0 4.779 1.21h.004c5.505 0 9.988-4.478 9.99-9.987A9.965 9.965 0 0 0 12.012 2Zm5.834 14.167c-.243.684-1.2 1.25-1.646 1.302-.447.051-.892.25-2.887-.534-2.552-1.004-4.184-3.578-4.312-3.748-.127-.17-1.042-1.385-1.042-2.644 0-1.26.658-1.879.891-2.128.234-.249.51-.311.68-.311h.488c.149 0 .34.021.488.382.16.382.532 1.302.574 1.386.043.085.075.18.01.31-.064.13-.106.213-.213.34-.106.128-.223.287-.319.383-.106.106-.218.223-.09.436.128.213.564.925 1.213 1.502.835.744 1.536.973 1.749 1.079.213.106.34.085.468-.064.128-.149.553-.638.702-.85.149-.213.298-.18.51-.106.213.074 1.339.632 1.567.748.228.117.382.17.436.266.053.096.053.553-.19.1.12.001 0 0 0 0Z"/>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
           </div>
         </ScrollReveal>
       </section>

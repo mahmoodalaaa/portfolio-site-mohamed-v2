@@ -14,12 +14,14 @@ interface ImageSliderProps {
   images: SlideImage[];
   isRtl?: boolean;
   autoPlayInterval?: number; // in ms
+  className?: string;
 }
 
 export default function ImageSlider({
   images,
   isRtl = false,
-  autoPlayInterval = 5000
+  autoPlayInterval = 5000,
+  className
 }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -54,7 +56,7 @@ export default function ImageSlider({
 
   return (
     <div
-      className="relative w-full h-full overflow-hidden border border-primary/20 shadow-2xl group select-none"
+      className={className || "relative w-full h-full overflow-hidden border border-primary/20 shadow-2xl group select-none"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
